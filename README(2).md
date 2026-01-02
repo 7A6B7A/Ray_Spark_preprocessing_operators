@@ -25,6 +25,7 @@ Spark MLlib 和 Ray Data 是当前较为流行的分布式数据处理与机器�
 - 节点数量：4 台服务器
 - 操作系统：Linux（Ubuntu）
 - 网络环境：公网 100 mbps/私网 15 mbps
+- 存储类型：SSD
 - 每台服务器配置：
   - CPU：4 核处理器
   - 内存：4 GB
