@@ -89,10 +89,10 @@ Spark MLlib 和 Ray Data 是当前较为流行的分布式数据处理与机器�
 ### 6.1 环境配置
 
 #### SPARK环境
-![alt text](abd392f2125a11b039eeffdaf88f8072.png)
+<img src="pictures/spark环境.png">
 
 #### RAY环境
-![alt text](17005023460c8f5fbe151ef2f9ddf579.png)
+<img src="pictures/ray环境.png">
 
 ### 6.2 性能指标对比表
 
@@ -108,47 +108,49 @@ Spark MLlib 和 Ray Data 是当前较为流行的分布式数据处理与机器�
 | Ray   | 数值型 | work1 | 14.41 | 94.97 | 1009.74 | 1357 | 18 |
 | Ray   | 数值型 | work2 | 12.47 | 92.66 | 984.32 | 1240 | 18 |
 | Ray   | 数值型 | work3 | 8.59 | 83.46 | 985.55 | 1183 | 18 |
-| Spark | 类别型 | Master |  |  |  |  |  |
-| Spark | 类别型 | work1 |  |  |  |  |  |
-| Spark | 类别型 | work2 |  |  |  |  |  |
-| Spark | 类别型 | work3 |  |  |  |  |  |
-| Ray   | 类别型 | Master |  |  |  |  |  |
-| Ray   | 类别型 | work1 |  |  |  |  |  |
-| Ray   | 类别型 | work2 |  |  |  |  |  |
-| Ray   | 类别型 | work3 |  |  |  |  |  |
+| Spark | 类别型 | Master | 61.46 | 94.47 | 3539 | 3958 | 17 |
+| Spark | 类别型 | work1 | 12.90 | 71.54 | 925 | 993 | 17 |
+| Spark | 类别型 | work2 | 12.40 | 66.50 | 962 | 1024 | 17 |
+| Spark | 类别型 | work3 | 12.92 | 81.27 | 941 | 1004 | 17 |
+| Ray   | 类别型 | Master | 19.14 | 45.05 | 4371 | 4473 | 6 |
+| Ray   | 类别型 | work1 | 6.98 | 24.37 | 1095 | 1177 | 6 |
+| Ray   | 类别型 | work2 | 6.31 | 20.75 | 1128 | 1192 | 6 |
+| Ray   | 类别型 | work3 | 2.07 | 5.03 | 1076 | 1076 | 6 |
 
 ---
 
-#### 过程可视化（左边ray右边spark）
+#### 过程可视化（左边spark右边ray）
 · 数值型算子：
 
-IO 情况分析
+IO 情况分析(上面为读出、下面为写入)
 
-<img src="io_util.png" width="45%" /> <img src="cpu_util.png" width="45%" />
+<img src="pictures\数值型\spark\小规模\disk_read.png" width="45%" /> <img src="pictures\数值型\ray\小规模\disk_read.png" width="45%" />
+<img src="pictures\数值型\spark\小规模\disk_write.png" width="45%" /> <img src="pictures\数值型\ray\小规模\disk_write.png" width="45%" />
 
 cpu可视化
 
-<img src="io_util.png" width="45%" /> <img src="cpu_util.png" width="45%" />
+<img src="pictures\数值型\spark\小规模\cpu_util.png" width="45%" /> <img src="pictures\数值型\ray\大规模\cpu_util.png" width="45%" />
 
 内存可视化
 
-<img src="io_util.png" width="45%" /> <img src="cpu_util.png" width="45%" />
+<img src="pictures\数值型\spark\小规模\mem_used.png" width="45%"/> <img src="pictures\数值型\ray\小规模\mem_used.png" width="45%" />
 
 ---
 
 · 类别型算子：
 
-IO 情况分析
+IO 情况分析(上面为读出、下面为写入)
 
-<img src="io_util.png" width="45%" /> <img src="cpu_util.png" width="45%" />
+<img src="pictures\类别型\spark\小规模\disk_read.png" width="45%" /> <img src="pictures\类别型\ray\小规模\disk_read.png" width="45%" />
+<img src="pictures\类别型\spark\小规模\disk_write.png" width="45%" /> <img src="pictures\类别型\ray\小规模\disk_write.png" width="45%" />
 
 cpu可视化
 
-<img src="io_util.png" width="45%" /> <img src="cpu_util.png" width="45%" />
+<img src="pictures\类别型\spark\小规模\cpu_util.png" width="45%" /> <img src="pictures\类别型\ray\大规模\cpu_util.png" width="45%" />
 
 内存可视化
 
-<img src="io_util.png" width="45%" /> <img src="cpu_util.png" width="45%" />
+<img src="pictures\类别型\spark\小规模\mem_used.png" width="45%"/> <img src="pictures\类别型\ray\小规模\mem_used.png" width="45%" />
 
 ---
 
@@ -165,47 +167,49 @@ cpu可视化
 | Ray   | 数值型 | work1 | 8.77 | 88.35 | 1071 | 1171 | 68 |
 | Ray   | 数值型 | work2 | 7.86 | 41.46 | 1030.33 | 1140 | 68 |
 | Ray   | 数值型 | work3 | 13.65 | 94.22 | 1478.85 | 1859 | 68 |
-| Spark | 类别型 | Master |  |  |  |  |  |
-| Spark | 类别型 | work1 |  |  |  |  |  |
-| Spark | 类别型 | work2 |  |  |  |  |  |
-| Spark | 类别型 | work3 |  |  |  |  |  |
-| Ray   | 类别型 | Master |  |  |  |  |  |
-| Ray   | 类别型 | work1 |  |  |  |  |  |
-| Ray   | 类别型 | work2 |  |  |  |  |  |
-| Ray   | 类别型 | work3 |  |  |  |  |  |
+| Spark | 类别型 | Master | 89.43 | 99.50 | 4846 | 5963 | 65 |
+| Spark | 类别型 | work1 | 12.90 | 77.39 | 975 | 1019 | 65 |
+| Spark | 类别型 | work2 | 12.00 | 80.00 | 999 | 1038 | 65 |
+| Spark | 类别型 | work3 | 11.97 | 75.13 | 976 | 1017 | 65 |
+| Ray   | 类别型 | Master | 33.79 | 93.53 | 4647 | 4795 | 19 |
+| Ray   | 类别型 | work1 | 11.31 | 48.36 | 1339 | 1421 | 18 |
+| Ray   | 类别型 | work2 | 9.55 | 40.40 | 1314 | 1386 | 18 |
+| Ray   | 类别型 | work3 | 15.34 | 30.46 | 1589 | 1777 | 18 |
 
 ---
 
-#### 过程可视化（左边ray右边spark）
+#### 过程可视化（左边spark右边ray）
 · 数值型算子：
 
-IO 情况分析
+IO 情况分析(上面为读出、下面为写入)
 
-<img src="io_util.png" width="45%" /> <img src="cpu_util.png" width="45%" />
+<img src="pictures\数值型\spark\中规模\disk_read.png" width="45%" /> <img src="pictures\数值型\ray\中规模\disk_read.png" width="45%" />
+<img src="pictures\数值型\spark\中规模\disk_write.png" width="45%" /> <img src="pictures\数值型\ray\中规模\disk_write.png" width="45%" />
 
 cpu可视化
 
-<img src="io_util.png" width="45%" /> <img src="cpu_util.png" width="45%" />
+<img src="pictures\数值型\spark\中规模\cpu_util.png" width="45%" /> <img src="pictures\数值型\ray\中规模\cpu_util.png" width="45%" />
 
 内存可视化
 
-<img src="io_util.png" width="45%" /> <img src="cpu_util.png" width="45%" />
+<img src="pictures\数值型\spark\中规模\mem_used.png" width="45%" /> <img src="pictures\数值型\ray\中规模\mem_used.png" width="45%" />
 
 ---
 
 · 类别型算子：
 
-IO 情况分析
+IO 情况分析(上面为读出、下面为写入)
 
-<img src="io_util.png" width="45%" /> <img src="cpu_util.png" width="45%" />
+<img src="pictures\类别型\spark\中规模\disk_read.png" width="45%" /> <img src="pictures\类别型\ray\中规模\disk_read.png" width="45%" />
+<img src="pictures\类别型\spark\中规模\disk_write.png" width="45%" /> <img src="pictures\类别型\ray\中规模\disk_write.png" width="45%" />
 
 cpu可视化
 
-<img src="io_util.png" width="45%" /> <img src="cpu_util.png" width="45%" />
+<img src="pictures\类别型\spark\中规模\cpu_util.png" width="45%" /> <img src="pictures\类别型\ray\中规模\cpu_util.png" width="45%" />
 
 内存可视化
 
-<img src="io_util.png" width="45%" /> <img src="cpu_util.png" width="45%" />
+<img src="pictures\类别型\spark\中规模\mem_used.png" width="45%" /> <img src="pictures\类别型\ray\中规模\mem_used.png" width="45%" />
 
 ---
 
@@ -221,47 +225,49 @@ cpu可视化
 | Ray   | 数值型 | work1 | 5.6 | 99 | 1405.34 | 1792 | 183 |
 | Ray   | 数值型 | work2 | 2.97 | 49.11 | 1405.34 | 1792 | 183 |
 | Ray   | 数值型 | work3 | 8.59 | 83.46 | 868.21 | 2357 | 183 |
-| Spark | 类别型 | Master |  |  |  |  |  |
-| Spark | 类别型 | work1 |  |  |  |  |  |
-| Spark | 类别型 | work2 |  |  |  |  |  |
-| Spark | 类别型 | work3 |  |  |  |  |  |
-| Ray   | 类别型 | Master |  |  |  |  |  |
-| Ray   | 类别型 | work1 |  |  |  |  |  |
-| Ray   | 类别型 | work2 |  |  |  |  |  |
-| Ray   | 类别型 | work3 |  |  |  |  |  |
+| Spark | 类别型 | Master | 91.75 | 99.75 | 5009 | 5956 | 173 |
+| Spark | 类别型 | work1 | 13.26 | 82.96 | 984 | 1023 | 173 |
+| Spark | 类别型 | work2 | 12.65 | 79.60 | 1005 | 1040 | 173 |
+| Spark | 类别型 | work3 | 12.81 | 78.59 | 981 | 1018 | 173 |
+| Ray   | 类别型 | Master | 38.10 | 92.91 | 5171 | 5360 | 34 |
+| Ray   | 类别型 | work1 | 10.72 | 37.47 | 1380 | 1474 | 34 |
+| Ray   | 类别型 | work2 | 9.60 | 50.13 | 1417 | 1485 | 34 |
+| Ray   | 类别型 | work3 | 10.86 | 53.62 | 1547 | 1633 | 34 |
 
 ---
 
-#### 过程可视化（左边ray右边spark）
+#### 过程可视化（左边spark右边ray）
 · 数值型算子：
 
-IO 情况分析
+IO 情况分析(上面为读出、下面为写入)
 
-<img src="io_util.png" width="45%" /> <img src="cpu_util.png" width="45%" />
+<img src="pictures\数值型\spark\大规模\disk_read.png" width="45%" /> <img src="pictures\数值型\ray\大规模\disk_read.png" width="45%" />
+<img src="pictures\数值型\spark\大规模\disk_write.png" width="45%" /> <img src="pictures\数值型\ray\大规模\disk_write.png" width="45%" />
 
 cpu可视化
 
-<img src="io_util.png" width="45%" /> <img src="cpu_util.png" width="45%" />
+<img src="pictures\数值型\spark\大规模\cpu_util.png" width="45%" /> <img src="pictures\数值型\ray\大规模\cpu_util.png" width="45%" />
 
 内存可视化
 
-<img src="io_util.png" width="45%" /> <img src="cpu_util.png" width="45%" />
+<img src="pictures\数值型\spark\大规模\mem_used.png" width="45%" /> <img src="pictures\数值型\ray\大规模\mem_used.png" width="45%" />
 
 ---
 
 · 类别型算子：
 
-IO 情况分析
+IO 情况分析(上面为读出、下面为写入)
 
-<img src="io_util.png" width="45%" /> <img src="cpu_util.png" width="45%" />
+<img src="pictures\类别型\spark\大规模\disk_read.png" width="45%" /> <img src="pictures\类别型\ray\大规模\disk_read.png" width="45%" />
+<img src="pictures\类别型\spark\大规模\disk_write.png" width="45%" /> <img src="pictures\类别型\ray\大规模\disk_write.png" width="45%" />
 
 cpu可视化
 
-<img src="io_util.png" width="45%" /> <img src="cpu_util.png" width="45%" />
+<img src="pictures\类别型\spark\大规模\cpu_util.png" width="45%" /> <img src="pictures\类别型\ray\大规模\cpu_util.png" width="45%" />
 
 内存可视化
 
-<img src="io_util.png" width="45%" /> <img src="cpu_util.png" width="45%" />
+<img src="pictures\类别型\spark\大规模\mem_used.png" width="45%" /> <img src="pictures\类别型\ray\大规模\mem_used.png" width="45%" />
 
 ---
 
@@ -269,7 +275,7 @@ cpu可视化
 
 ### 7.1 实验方法
 
-通过调整节点数量或并行度（如分区数），测量执行时间变化，计算加速比：
+通过调整节点数量，使用数值型算子，测量执行时间变化，计算加速比：
 
 ```
 Speedup = T1 / Tn
@@ -277,25 +283,19 @@ Speedup = T1 / Tn
 
 ### 7.2 扩展性记录表
 
-| 框架 | 算子类型 | 数据规模 | 节点数 | 执行时间(s) | 加速比 |
-|------|---------|----------|--------|------------|--------|
-| Spark | 数值型 | 中 | 1 |  | 1.0 |
-| Spark | 数值型 | 中 | 2 |  |  |
-| Spark | 数值型 | 中 | 4 |  |  |
-| Ray | 数值型 | 中 | 1 | 110 | 1.0 |
-| Ray | 数值型 | 中 | 2 | 82 | 1.34 |
-| Ray | 数值型 | 中 | 4 | 68 | 1.62 |
+| 框架 | 数据规模 | 节点数 | 执行时间(s) | 加速比 |
+|------|----------|--------|------------|--------|
+| Spark | 中 | 1 | 47 | 1.0 |
+| Spark | 中 | 2 | 47 | 1.0 |
+| Spark | 中 | 4 | 47 | 1.0 |
+| Ray | 中 | 1 | 110 | 1.0 |
+| Ray | 中 | 2 | 82 | 1.34 |
+| Ray | 中 | 4 | 68 | 1.62 |
 
 ---
 
 ## 八、结果分析
 
-从实验结果可以重点分析以下方面：
-
-- 不同数据规模下 Spark 与 Ray 的性能变化趋势；
-- 数值型与类别型算子在不同框架中的执行特点；
-- Shuffle、分区策略对性能的影响；
-- Ray 的任务调度模型与 Spark DAG 执行模型的差异。
 
 ---
 
@@ -304,9 +304,5 @@ Speedup = T1 / Tn
 通过本实验，可以系统性地比较 Spark MLlib 与 Ray Data 在机器学习预处理阶段的性能和可扩展性。
 实验结果为在实际机器学习任务中选择合适的分布式计算框架提供了参考依据。
 
----
 
-## 十、附录
 
-- Spark UI：用于分析作业执行计划和资源使用情况
-- Ray Dashboard：用于监控任务调度与对象存储使用情况
